@@ -3,7 +3,6 @@ import 'package:pruebatec/pages/calculadora_propinas/pages/calculadora.dart';
 import 'package:pruebatec/pages/consumo_api/pages/consumo_api.dart';
 import 'package:pruebatec/pages/lista_tareas/pages/lista_tareas.dart';
 import 'package:pruebatec/pages/menu/widgets/opcion.dart';
-import 'package:pruebatec/pages/persistencia_datos/pages/persistencia_datos.dart';
 
 class MenuLateral extends StatelessWidget {
   const MenuLateral({
@@ -73,17 +72,6 @@ class MenuLateral extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (_) => ConsumoApiScreen()),
-              );
-            },
-          ),
-          Opcion(
-            icono: Icons.save_alt_outlined,
-            titulo: "Persistencia de Datos",
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (_) => PersistenciaDatosScreen()),
               );
             },
           ),
