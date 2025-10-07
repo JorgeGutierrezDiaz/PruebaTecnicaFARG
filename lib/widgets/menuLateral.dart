@@ -48,9 +48,9 @@ class MenuLateral extends StatelessWidget {
             titulo: "Calculadora de Propinas",
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const CalculadoraPropinas()),
+                MaterialPageRoute(builder: (_) => CalculadoraPropinas()),
               );
             },
           ),
@@ -59,9 +59,9 @@ class MenuLateral extends StatelessWidget {
             titulo: "Lista de Tareas",
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const ListaTareasScreen()),
+                MaterialPageRoute(builder: (_) => ListaTareasScreen()),
               );
             },
           ),
@@ -70,9 +70,9 @@ class MenuLateral extends StatelessWidget {
             titulo: "Consumo de API",
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (_) => const ConsumoApiScreen()),
+                MaterialPageRoute(builder: (_) => ConsumoApiScreen()),
               );
             },
           ),
@@ -81,10 +81,9 @@ class MenuLateral extends StatelessWidget {
             titulo: "Persistencia de Datos",
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                    builder: (_) => const PersistenciaDatosScreen()),
+                MaterialPageRoute(builder: (_) => PersistenciaDatosScreen()),
               );
             },
           ),

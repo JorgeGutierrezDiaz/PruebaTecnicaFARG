@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pruebatec/pages/lista_tareas/bloc/lista_tareas_bloc.dart';
+import 'package:pruebatec/pages/lista_tareas/bloc/lista_tareas_event.dart';
 import 'package:pruebatec/pages/menu/pages/menu.dart';
 
 void main() {
@@ -10,9 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'PruebaTecnica',
-      home: MenuInicial(),
+    return BlocProvider(
+      create: (_) => TareasBloc()..add(CargarTareas()),
+      child: MaterialApp(
+        title: 'PruebaTecnica',
+        home: MenuInicial(),
+      ),
     );
   }
 }
