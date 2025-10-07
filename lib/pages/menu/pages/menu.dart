@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pruebatec/pages/calculadora_propinas/pages/calculadora.dart';
-import 'package:pruebatec/pages/consumo_api/pages/consumo_api.dart';
-import 'package:pruebatec/pages/lista_tareas/pages/lista_tareas.dart';
-import 'package:pruebatec/pages/menu/widgets/opcion.dart';
-import 'package:pruebatec/pages/persistencia_datos/pages/persistencia_datos.dart';
-import 'package:pruebatec/widgets/app_bar.dart';
+import 'package:pruebatec/widgets/menuLateral.dart';
 
 class MenuInicial extends StatelessWidget {
   const MenuInicial({super.key});
@@ -12,52 +7,55 @@ class MenuInicial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarCustom(
-        titulo: "Menu inicial",
-      ),
-      body: ListView(
-        physics: const NeverScrollableScrollPhysics(),
+      drawer: MenuLateral(),
+      body: Stack(
         children: [
-          Opcion(
-            icono: Icons.calculate_outlined,
-            titulo: "Calculadora de Propinas",
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const CalculadoraPropinas()),
-              );
-            },
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/fondo.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          Opcion(
-            icono: Icons.checklist_outlined,
-            titulo: "Lista de Tareas",
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const ListaTareasScreen()),
-              );
-            },
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 5),
+            child: Builder(
+              builder: (context) => IconButton(
+                icon: const Icon(Icons.menu, color: Colors.white, size: 30),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              ),
+            ),
           ),
-          Opcion(
-            icono: Icons.cloud_download_outlined,
-            titulo: "Consumo de API",
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const ConsumoApiScreen()),
-              );
-            },
-          ),
-          Opcion(
-            icono: Icons.save_alt_outlined,
-            titulo: "Persistencia de Datos",
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (_) => const PersistenciaDatosScreen()),
-              );
-            },
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  "¡Bienvenido!",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    "Abre el menú lateral para seleccionar una opcion",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color.fromARGB(179, 255, 255, 255),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

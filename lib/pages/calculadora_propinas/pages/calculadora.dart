@@ -10,6 +10,6 @@ class CalculadoraPropinas extends StatefulWidget {
 class _CalculadoraPropinasState extends State<CalculadoraPropinas> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
