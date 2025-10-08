@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+import 'package:pruebatec/pages/lista_tareas/models/tarea_model.dart';
 
 abstract class TareasEvent extends Equatable {
   const TareasEvent();
@@ -9,10 +11,11 @@ abstract class TareasEvent extends Equatable {
 class CargarTareas extends TareasEvent {}
 
 class AgregarTarea extends TareasEvent {
-  final String titulo;
-  const AgregarTarea(this.titulo);
+  final Tarea tarea;
+  const AgregarTarea(this.tarea);
+
   @override
-  List<Object?> get props => [titulo];
+  List<Object?> get props => [tarea];
 }
 
 class EliminarTarea extends TareasEvent {
@@ -24,10 +27,20 @@ class EliminarTarea extends TareasEvent {
 
 class EditarTarea extends TareasEvent {
   final int index;
-  final String titulo;
-  const EditarTarea(this.index, this.titulo);
+  final String? nuevoTitulo;
+  final String? nuevaDescripcion;
+  final int? nuevoColor;
+
+  const EditarTarea(
+    this.index,
+    String text, {
+    this.nuevoTitulo,
+    this.nuevaDescripcion,
+    this.nuevoColor,
+  });
+
   @override
-  List<Object?> get props => [index, titulo];
+  List<Object?> get props => [index, nuevoTitulo, nuevaDescripcion, nuevoColor];
 }
 
 class ToggleCompletado extends TareasEvent {
